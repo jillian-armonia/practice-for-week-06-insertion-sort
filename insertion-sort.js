@@ -26,15 +26,17 @@ function insertionSort(arr) {
     console.log(sorted.join(','));
 
     let popped = copy.pop();
-    sorted.push(popped);
+    sorted.push(null);
 
-    for (let i = sorted.length - 1; i >= 0; i--){
-      if (sorted[i] < popped){
-        break;
-      } else if (sorted[i] > popped){
-        [sorted[i], sorted[i + 1]] = [sorted[i + 1], sorted[i]];
-      }
+    let i = sorted.length - 2;
+    while(i >= 0){ //followed some ideas from other students
+      if (sorted[i] < popped) break;
+
+      sorted[i + 1] = sorted[i];
+      i--;
     }
+
+    sorted[i + 1] = popped;
   }
 
   return sorted;
