@@ -62,6 +62,24 @@ function insertionSortInPlace(arr) {
   */
 
   // Your code here
+  let rule = 0;
+
+  while (rule < arr.length){
+
+    let value = arr[rule];
+    let i = rule;
+    for (i; i > 0; i--){
+      if (arr[i - 1] < value) break;
+
+      arr[i] = arr[i - 1];
+    }
+
+    arr[i] = value;
+    console.log(arr.join(','))
+    rule++;
+  }
+
+  return arr;
 }
 
 module.exports = [insertionSort, insertionSortInPlace];
